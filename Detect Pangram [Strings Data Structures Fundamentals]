@@ -1,0 +1,24 @@
+#include <string>
+#include <cctype> // for tolower()
+
+bool is_pangram(const std::string& s) {
+    for (char ch = 'a'; ch <= 'z'; ch++) {
+        bool found = false;
+
+        // Search for the character in the string
+        for (size_t i = 0; i < s.length(); i++) {
+            if (ch == tolower(s[i])) {
+                found = true;
+                break;
+            }
+        }
+
+        // If any character from 'a' to 'z' is not found, return false
+        if (!found) {
+            return false;
+        }
+    }
+
+    // All characters from 'a' to 'z' were found
+    return true;
+}
